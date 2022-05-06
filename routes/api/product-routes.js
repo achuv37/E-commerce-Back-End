@@ -12,6 +12,11 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Category,
+          // required: true
+      }, 
+      {
+        model: Tag,
+        // through: ProductTag, as: 'Product_tag'
       }
     ]
     });
@@ -30,6 +35,13 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Category,
+          // required: true
+        },
+        {
+          model: Tag,
+          // required: true
+          // through: ProductTag, as: 'Product_tag'
+
         }
       ]
     });
@@ -129,7 +141,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({
         message: "No product found with this id"
       });
-    } res.status(200).json(productData);
+    } res.status(200).json(deletedProduct);
   } catch (error) {
     res.status(500).json(error);
   }
