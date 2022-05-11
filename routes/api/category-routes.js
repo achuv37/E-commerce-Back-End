@@ -37,7 +37,10 @@ router.get('/:id', async (req, res) => {
         res.status(404).json({ message: 'No categories found with this id' });
         
       }
-      res.status(200).json(categoryData);
+      //res.status(200).json(categoryData);
+  else {
+    res.status(200).json(categoryData);
+  }
     } catch (error) {
       res.status(500).json(err);
     }
@@ -68,11 +71,14 @@ router.put('/:id', async (req, res) => {
       }
     
   });
-   if (!updatedCategory[0]) {
+  if (!updatedCategory[0]) {
       res.status(404).json({ message: 'No categories found with this id' });
         
       }
-      res.status(200).json(updatedCategory);
+      //res.status(200).json(updatedCategory);
+  else {
+    res.status(200).json(updatedCategory);
+  }
     } catch (error) {
       res.status(500).json(error);
     }
@@ -93,7 +99,10 @@ router.delete('/:id', async (req, res) => {
         res.status(404).json({ message: 'No categories found with this id' });
         return;
       }
-      res.status(200).json(deletedCategory);
+      //res.status(200).json(deletedCategory);
+  else {
+    res.status(200).json(deletedCategory);
+  }
   } catch (error) {
     res.status(500).json(error);
   }
