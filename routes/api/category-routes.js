@@ -27,21 +27,18 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-  const categoryData = await Category.findByPk(req.params.id, {
-    include: [{
-      model: Product,
+    const categoryData = await Category.findByPk(req.params.id, {
+      include: [{
+        model: Product,
     }]
   });
     
-  if (!categoryData) {
-        res.status(404).json({ message: 'No categories found with this id' });
-        
-      }
-      //res.status(200).json(categoryData);
-  else {
+    if (!categoryData) {
+      res.status(404).json({ message: 'No categories found with this id' });
+    } else {
     res.status(200).json(categoryData);
-  }
-    } catch (error) {
+    }
+  } catch (error) {
       res.status(500).json(err);
     }
   });
@@ -71,15 +68,15 @@ router.put('/:id', async (req, res) => {
       }
     
   });
-  if (!updatedCategory[0]) {
+    if (!updatedCategory[0]) {
       res.status(404).json({ message: 'No categories found with this id' });
         
       }
       //res.status(200).json(updatedCategory);
-  else {
-    res.status(200).json(updatedCategory);
+    else {
+      res.status(200).json(updatedCategory);
   }
-    } catch (error) {
+  } catch (error) {
       res.status(500).json(error);
     }
     
@@ -95,7 +92,7 @@ router.delete('/:id', async (req, res) => {
     }
   });
 
-  if (!deletedCategory) {
+    if (!deletedCategory) {
         res.status(404).json({ message: 'No categories found with this id' });
         return;
       }
