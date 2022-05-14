@@ -20,6 +20,6 @@ This challenge is to build the back end for an e-commerce site. It will  take a 
 * dotenv
 
 ## Video
-
+https://www.youtube.com/watch?v=7qDUZcHn8kI
 ## contributed by
 Aswathy
